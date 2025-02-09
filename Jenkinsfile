@@ -1,6 +1,10 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'maven:3.8-jdk-11'  // This specifies the Docker image with Maven pre-installed
+            label 'docker'  // Optional: If you have specific agents labeled, you can add this
+        }
+    }
     stages {
         stage('Clone Repository') {
             steps {
