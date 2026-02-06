@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.9.3-openjdk-17' // image officielle Maven + JDK
+            args '-v /root/.m2:/root/.m2'  // réutilise le cache Maven
+        }
+    }
 
     stages {
         stage('Clone Repository') {
@@ -10,13 +15,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean install'  // This builds your Maven project
+                sh 'mvn clean install'  // build Maven
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'  // This runs your unit tests
+                sh 'mvn test'  // unit tests
             }
         }
 
