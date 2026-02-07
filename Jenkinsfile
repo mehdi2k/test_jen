@@ -6,6 +6,12 @@ pipeline {
         }
     }
 
+stage('Docker test') {
+    steps {
+        sh 'docker --version'
+    }
+}
+
     stages {
         stage('Clone Repository') {
             steps {
