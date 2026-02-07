@@ -6,13 +6,14 @@ pipeline {
         }
     }
 
-stage('Docker test') {
-    steps {
-        sh 'docker --version'
-    }
-}
 
     stages {
+    stage('Docker test') {
+        steps {
+            sh 'docker --version'
+        }
+    }
+
         stage('Clone Repository') {
             steps {
                 git 'https://github.com/mehdi2k/test_jen'
