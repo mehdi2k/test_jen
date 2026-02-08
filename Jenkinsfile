@@ -9,8 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/mehdi2k/test_jen',
-                branch: 'master'   // or whatever branch you want
+                git 'https://github.com/mehdi2k/test_jen/tree/master',
             }
         }
 
