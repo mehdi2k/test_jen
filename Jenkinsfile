@@ -8,6 +8,22 @@ pipeline {
 
     stages {
 
+    stage('Diagnostics') {
+                steps {
+                    sh 'pwd'                          // where are we?
+                    sh 'ls -la'                      // what files were checked out?
+                    sh 'git status'                  // confirm repo state
+                    sh 'java -version'               // JDK is really there?
+                    sh 'mvn --version'               // Maven is really there?
+                    sh 'mvn help:effective-settings' // show resolved Maven settings
+                }
+            }
+
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/mehdi2k/test_jen'
+            }
+        }
 
         stage('Build') {
             steps {
