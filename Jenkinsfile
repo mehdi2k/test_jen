@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/mehdi2k/test_jen/tree/master',
+                git 'https://github.com/mehdi2k/test_jen/tree/master'
             }
         }
 
